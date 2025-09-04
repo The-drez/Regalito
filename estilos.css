@@ -1,0 +1,154 @@
+body {
+    background: radial-gradient(circle at 50% 120%, rgba(200, 100, 200, 0.8), #000);
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #fff;
+}
+
+.progress-bar-container {
+    width: 300px;
+    height: 20px;
+    background-color: #555;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #ff6f61;
+    transition: width 0.1s linear;
+}
+
+#progress-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#main-content {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.heart-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vh;
+    height: 60vh;
+    z-index: 1;
+}
+
+.heart-animation {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+    animation: pulse 2s infinite;
+}
+
+.heart-animation:before,
+.heart-animation:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #ff6f61;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 40px rgba(255, 111, 97, 0.8);
+}
+
+.heart-animation:before {
+    left: 50%;
+    transform-origin: 0 100%;
+}
+
+.heart-animation:after {
+    left: 0;
+    transform: rotate(90deg);
+    transform-origin: 100% 100%;
+}
+
+.letter {
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    max-width: 80%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.particle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkle 5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1) rotate(-45deg); }
+    50% { transform: scale(1.1) rotate(-45deg); }
+    100% { transform: scale(1) rotate(-45deg); }
+}
+
+@keyframes sparkle {
+    0% { transform: translateY(0) scale(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-50vh) scale(1.5); opacity: 0; }
+}
+
+.particle:nth-child(1) { width: 5px; height: 5px; top: 70%; left: 30%; animation-delay: 0s; background-color: rgba(255, 255, 255, 0.8); }
+.particle:nth-child(2) { width: 3px; height: 3px; top: 80%; left: 50%; animation-delay: 0.5s; background-color: rgba(255, 230, 230, 0.9); }
+.particle:nth-child(3) { width: 4px; height: 4px; top: 60%; left: 70%; animation-delay: 1s; background-color: rgba(255, 255, 255, 0.7); }
+.particle:nth-child(4) { width: 2px; height: 2px; top: 90%; left: 20%; animation-delay: 1.5s; background-color: rgba(255, 230, 230, 0.8); }
+.particle:nth-child(5) { width: 6px; height: 6px; top: 40%; left: 80%; animation-delay: 2s; background-color: rgba(255, 255, 255, 0.9); }
+.particle:nth-child(6) { width: 4px; height: 4px; top: 30%; left: 45%; animation-delay: 2.5s; background-color: rgba(255, 230, 230, 0.7); }
+.particle:nth-child(7) { width: 3px; height: 3px; top: 55%; left: 15%; animation-delay: 3s; background-color: rgba(255, 255, 255, 0.8); }
+.particle:nth-child(8) { width: 5px; height: 5px; top: 20%; left: 60%; animation-delay: 3.5s; background-color: rgba(255, 230, 230, 0.9); }
+.particle:nth-child(9) { width: 2px; height: 2px; top: 85%; left: 90%; animation-delay: 4s; background-color: rgba(255, 255, 255, 0.7); }
+.particle:nth-child(10) { width: 4px; height: 4px; top: 10%; left: 25%; animation-delay: 4.5s; background-color: rgba(255, 230, 230, 0.8); }
+.particle:nth-child(11) { width: 5px; height: 5px; top: 50%; left: 5%; animation-delay: 1.2s; background-color: rgba(255, 255, 255, 0.9); }
+.particle:nth-child(12) { width: 3px; height: 3px; top: 25%; left: 85%; animation-delay: 2.8s; background-color: rgba(255, 230, 230, 0.7); }
+.particle:nth-child(13) { width: 4px; height: 4px; top: 75%; left: 40%; animation-delay: 3.3s; background-color: rgba(255, 255, 255, 0.8); }
+.particle:nth-child(14) { width: 2px; height: 2px; top: 15%; left: 55%; animation-delay: 4.2s; background-color: rgba(255, 230, 230, 0.9); }
+.particle:nth-child(15) { width: 6px; height: 6px; top: 65%; left: 95%; animation-delay: 0.7s; background-color: rgba(255, 255, 255, 0.7); }

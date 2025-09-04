@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi vv</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="progress-text">Loading... 0%</div>
+    </div>
+
+    <div id="main-content">
+        <div class="heart-container">
+            <div class="heart-animation"></div>
+            <div class="letter">
+                <h1>Para mi Candy :3</h1>
+                <p>
+                    Feliz cumple amol espero que la pases de lo mejor en tu día tan especial como vos,
+eres una personita increíble y única
+Te deseo lo mejor,
+que este nuevo año te regale momentos hermosos, sueños cumplidos 
+y que todos tus sueños se cumplan,
+ya sabes que siempre voy a estar y te apoyare en todo :3
+Hoy celebramos tu vida y que de todas las personas en el mundo
+el destino te haya traído hasta mí.
+                </p>
+                <p>
+                    con todo mi cariño,
+                </p>
+                <p>
+                    -Jake- Nico
+                </p>
+            </div>
+        </div>
+        
+        <div class="particle-container">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const loadingScreen = document.getElementById('loading-screen');
+        const mainContent = document.getElementById('main-content');
+        let progress = 0;
+
+        const interval = setInterval(function() {
+            progress += 0.5;
+            if (progress > 100) progress = 100;
+            
+            progressBar.style.width = progress + '%';
+            progressText.textContent = `Loading... ${Math.floor(progress)}%`;
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }, 500); 
+            }
+        }, 20);
+    </script>
+
+</body>
+</html>
